@@ -8,6 +8,12 @@ import {GoVerified} from 'react-icons/go';
 
 
 const VideoCard = ({post}:VideoCardProps) => {
+
+    const [isHover, setIsHover] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
+    const videoRef = useRef(null);
+
     return (
         <div className='flex flex-col border-gray-200 border-b-2 pb-6'>
             <div className="">
@@ -39,19 +45,57 @@ const VideoCard = ({post}:VideoCardProps) => {
             <div className="lg:ml-20 flex gap-4 relative">
                 <div 
                     className="rounded-3xl"
-                    onMouseEnter={()=> {}}
-                    onMouseLeave={()=> {}}
+                    onMouseEnter={()=> setIsHover(true)}
+                    onMouseLeave={()=> setIsHover(false)}
                 >
                     <Link href='/'>
                         <video
                             loop
+                            ref={videoRef}
                             src={post.video.asset.url}
                             className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] bg-gray-100 rounded-2xl cursor-pointer"
                         >
 
                         </video>
                     </Link>
-                    
+                    {isHover && (
+                        <div className="flex">
+                            {isPlaying 
+                            ? (
+                                <button>
+                                    <BsFillPauseFill 
+                                        onClick={()=> setIsPlaying(false)}
+                                        className='text-black text-2xl lg:text-4xl'
+                                    />
+                                </button>) 
+                            : (
+                                <button>
+                                    <BsFillPlayFill 
+                                        onClick={()=> setIsPlaying(true)}
+                                        className='text-black text-2xl lg:text-4xl'
+                                    />
+                                </button>
+                                )
+                            }
+                            {isMuted 
+                            ? (
+                                <button>
+                                    <HiVolumeOff 
+                                        onClick={()=> setIsMuted(false)}
+                                        className='text-black text-2xl lg:text-4xl'
+                                    />
+                                </button>) 
+                            : (
+                                <button>
+                                    <HiVolumeUp 
+                                        onClick={()=> setIsMuted(true)}
+                                        className='text-black text-2xl lg:text-4xl'
+                                    />
+                                </button>
+                                )
+                            }
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
