@@ -17,7 +17,7 @@ import '../styles/globals.css';
   if (isSSR) return null;
   
   return (
-    <GoogleOAuthProvider clientId='559736122256-o3nco5ppcvfkfr42feqpkk6th73oipr6.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
       <div>
         <Navbar/>
         <div className="flex gap-6 md:gap-20">
