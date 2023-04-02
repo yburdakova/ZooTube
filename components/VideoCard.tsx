@@ -12,7 +12,17 @@ const VideoCard = ({post}:VideoCardProps) => {
     const [isHover, setIsHover] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
-    const videoRef = useRef(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const onVideoPress = () => {
+        if (isPlaying) {
+            videoRef?.current?.pause();
+            setIsPlaying(false);
+        } else {
+            videoRef?.current?.play();
+            setIsPlaying(true);
+        }
+    }
 
     return (
         <div className='flex flex-col border-gray-200 border-b-2 pb-6'>
@@ -59,19 +69,19 @@ const VideoCard = ({post}:VideoCardProps) => {
                         </video>
                     </Link>
                     {isHover && (
-                        <div className="flex">
+                        <div className="absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] p-3">
                             {isPlaying 
                             ? (
                                 <button>
                                     <BsFillPauseFill 
-                                        onClick={()=> setIsPlaying(false)}
+                                        onClick={onVideoPress}
                                         className='text-black text-2xl lg:text-4xl'
                                     />
                                 </button>) 
                             : (
                                 <button>
                                     <BsFillPlayFill 
-                                        onClick={()=> setIsPlaying(true)}
+                                        onClick={onVideoPress}
                                         className='text-black text-2xl lg:text-4xl'
                                     />
                                 </button>
