@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,7 +8,8 @@ import {BiSearch} from 'react-icons/bi';
 import {IoMdAdd} from 'react-icons/io';
 
 
-import Logo from '../utils/tiktik-logo1.png'
+import Logo from '../utils/tiktik-logo1.png';
+import SmallLogo from '../utils/tiktik-logo2.png';
 import { createOrGetUser } from '@/utils';
 import useAuthStore from '@/store/authStore';
 
@@ -16,26 +17,38 @@ import useAuthStore from '@/store/authStore';
 
 const Navbar = () => {
 
-    const {userProfile, addUser, removeUser} = useAuthStore();
+    const {userProfile, addUser, removeUser}:any = useAuthStore();
+    const [width, setWidth] = useState(window.innerWidth);
+
+    
 
     return (
         <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4'>
             <Link href="/">
-                <div className='w-[100px] md:w-[130px] md:h-[30px] h[38px]'>
-                    <Image 
+                
+                    {width < 560 
+                    ? <div className='w-[40px] h-[40px]'>
+                        <Image 
+                        className='cursor-pointer'
+                        src={SmallLogo}
+                        alt="ZooTube logo"
+                        priority
+                        />
+                    </div>
+                    : <div className='w-[200px] h-[60px]'><Image 
                         className='cursor-pointer'
                         src={Logo}
-                        alt="TipTop logo"
-                        priority
-                    />
-                </div>
+                        alt="ZooTube logo"
+                        priority/>
+                    </div>}
+                
             </Link>
             <div className="">SEARCH</div>
             <div className="">
                 {userProfile 
-                ? ( <div className='flex gap-5 md:gap-10'>
+                ? ( <div className='flex gap-5 md:gap-10 items-center justify-center'>
                         <Link href='/upload'>
-                            <button className='border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2'>
+                            <button className='border-2 px-2 md:px-4 text-lg font-semibold flex items-center justify-center gap-2 rounded-full'>
                                 <IoMdAdd className='text-xl'/> {` `}
                                 <span className="hidden md:block">Upload</span>
                             </button>
