@@ -1,3 +1,7 @@
+export interface IndexProps {
+    videos: Video[]
+}
+
 export interface DetailsProps {
     params: {
         id: string;

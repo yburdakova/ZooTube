@@ -22,13 +22,19 @@ const VideoCard = ({post}:VideoCardProps) => {
             videoRef?.current?.play();
             setIsPlaying(true);
         }
-    }
+    };
+    
+    useEffect(() => {
+        if (videoRef?.current) {
+            videoRef.current.muted = isMuted;
+        }
+        }, [isMuted]);
 
     return (
-        <div className='flex flex-col border-gray-200 border-b-2 pb-6'>
-            <div className="">
-                <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
-                    <div className="md:w-16 md:h-16 w-10 h-10">
+        <div className='flex flex-col pb-6 border-b-2 border-gray-200'>
+            <div>
+                <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">
+                    <div className="w-10 h-10 md:w-16 md:h-16">
                         <Link href='/'>
                             <>
                             <Image
@@ -44,7 +50,7 @@ const VideoCard = ({post}:VideoCardProps) => {
                     </div>
                     <Link href='/'>
                         <div className="flex items-center gap-2">
-                            <p className=" flex gap-2 items-center md:text-md font-bold text-primary">
+                            <p className="flex items-center gap-2 font-bold md:text-md text-primary">
                                 {post.postedBy.userName} {` `}
                                 <GoVerified className="text-blue-400 text-md"/>
                             </p>
@@ -52,7 +58,7 @@ const VideoCard = ({post}:VideoCardProps) => {
                     </Link>
                 </div>
             </div>
-            <div className="lg:ml-20 flex gap-4 relative">
+            <div className="relative flex gap-4 lg:ml-20">
                 <div 
                     className="rounded-3xl"
                     onMouseEnter={()=> setIsHover(true)}
@@ -75,14 +81,14 @@ const VideoCard = ({post}:VideoCardProps) => {
                                 <button>
                                     <BsFillPauseFill 
                                         onClick={onVideoPress}
-                                        className='text-black text-2xl lg:text-4xl'
+                                        className='text-2xl text-black lg:text-4xl'
                                     />
                                 </button>) 
                             : (
                                 <button>
                                     <BsFillPlayFill 
                                         onClick={onVideoPress}
-                                        className='text-black text-2xl lg:text-4xl'
+                                        className='text-2xl text-black lg:text-4xl'
                                     />
                                 </button>
                                 )
@@ -92,14 +98,14 @@ const VideoCard = ({post}:VideoCardProps) => {
                                 <button>
                                     <HiVolumeOff 
                                         onClick={()=> setIsMuted(false)}
-                                        className='text-black text-2xl lg:text-4xl'
+                                        className='text-2xl text-black lg:text-4xl'
                                     />
                                 </button>) 
                             : (
                                 <button>
                                     <HiVolumeUp 
                                         onClick={()=> setIsMuted(true)}
-                                        className='text-black text-2xl lg:text-4xl'
+                                        className='text-2xl text-black lg:text-4xl'
                                     />
                                 </button>
                                 )
