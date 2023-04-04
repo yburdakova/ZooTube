@@ -44,12 +44,12 @@ const Detail = ({ postDetails }: DetailsProps) => {
     
     const handleLike = async (like: boolean) => {
         if (userProfile) {
-            const res = await axios.put(``, {
+            const { data} = await axios.put(`${BASE_URL}/api/like`, {
             userId: userProfile._id,
             postId: post._id,
             like
             });
-            setPost({ ...post, likes: res.data.likes });
+            setPost({ ...post, likes: data.likes });
         }
     };
 
@@ -95,7 +95,7 @@ const Detail = ({ postDetails }: DetailsProps) => {
             <div className="relative w-[1000px] md:w-[900px] lg:w-[700px]">
                 <div className="mt-10 lg:mt-20">
                     <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">
-                        <div className="w-10 h-10 md:w-16 md:h-16">
+                        <div className="w-10 h-10 ml-8 md:w-16 md:h-16">
                             <Link href='/'>
                                 <>
                                 <Image
@@ -122,7 +122,7 @@ const Detail = ({ postDetails }: DetailsProps) => {
                 <p className="px-10 text-lg text-gray-600">{post.caption}</p>
                 <div className="px-10 mt-10">
                     {userProfile && (
-                        <LikeButton likes={0} flex='' handleLike={()=> {}} handleDislike={()=>{}}/>
+                        <LikeButton likes={post.likes} flex='' handleLike={() => handleLike(true)} handleDislike={() => handleLike(false)}/>
                     )}
                 </div>
                 <Comments/>
