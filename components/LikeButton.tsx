@@ -11,13 +11,13 @@ const LikeButton = ({ likes, handleLike, handleDislike }: LikeProps) => {
     const {userProfile}: any = useAuthStore();
     const filterLikes = likes?.filter((item:any) => item._ref === userProfile?._id);
 
-    useEffect (() => {
-        if (filterLikes?.length>0) {
-            setAlreadyLiked(true)
+    useEffect(() => {
+        if (filterLikes?.length > 0) {
+            setAlreadyLiked(true);
         } else {
-            setAlreadyLiked(false)
+            setAlreadyLiked(false);
         }
-    })
+    }, [filterLikes, likes]);
     
     return (
         <div className='flex gap-6'>
