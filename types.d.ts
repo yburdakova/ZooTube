@@ -1,3 +1,23 @@
+import React , { Dispatch, SetStateAction } from "react";
+
+export interface CommentsProps{
+    isPostingComment: boolean;
+    comment: string;
+    setComment: Dispatch<SetStateAction<string>>;
+    addComment: (e: ReactFormEvent) => void;
+    comments: CommentProps[];
+}
+
+export interface CommentProps{
+    comment: string;
+    length?: number;
+    _key: string;
+    postedBy:{
+        _ref: string;
+        _id: string;
+    }
+}
+
 export interface IndexProps {
     videos: Video[]
 }
