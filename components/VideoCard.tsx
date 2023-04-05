@@ -6,6 +6,7 @@ import {HiVolumeUp, HiVolumeOff} from 'react-icons/hi';
 import { BsPlay, BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 import {GoVerified} from 'react-icons/go';
 
+import img1 from '/public/imgs/001.png'
 
 const VideoCard = ({post}:VideoCardProps) => {
 
@@ -71,6 +72,7 @@ const VideoCard = ({post}:VideoCardProps) => {
                             loop
                             ref={videoRef}
                             src={post.video.asset.url}
+                            poster={`${img1}`}
                             className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] bg-gray-100 rounded-2xl cursor-pointer"
                         >
 

@@ -1,6 +1,9 @@
 import { GiCat, GiHummingbird, GiFrogFoot, GiLion, GiScarabBeetle, GiSandSnake, GiMonkey } from 'react-icons/gi';
 import { FaDog, FaHorse, FaFish, FaSpider } from 'react-icons/fa';
 
+import img1 from '/public/imgs/001.png'
+import img2 from '/public/imgs/002.png'
+
 export const topics = [
   {
     name: 'kitties',
