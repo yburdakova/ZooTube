@@ -28,6 +28,8 @@ const Detail = ({ postDetails }: DetailsProps) => {
 
     const { userProfile }: any = useAuthStore();
 
+
+
     const onVideoClick = () => {
         if (isPlaying) {
             videoRef?.current?.pause();
@@ -55,7 +57,7 @@ const Detail = ({ postDetails }: DetailsProps) => {
         }
     };
 
-    const addComment = async (e) => {
+    const addComment = async (e:any) => {
         e.preventDefault();
         
         if (userProfile && comment) {

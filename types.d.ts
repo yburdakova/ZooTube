@@ -20,10 +20,10 @@ export interface CommentProps{
     comment: string;
     length?: number;
     _key: string;
-    postedBy:{
-        _ref: string;
-        _id: string;
-    }
+    postedBy: { 
+        _ref?: string; 
+        _id?: string 
+    };
 }
 
 export interface IndexProps {

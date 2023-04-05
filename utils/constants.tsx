@@ -1,39 +1,50 @@
-import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
-import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
-import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
+import { GiCat, GiHummingbird, GiFrogFoot, GiDonkey, GiLion, GiScarabBeetle, GiSandSnake } from 'react-icons/gi';
+import { FaDog, FaHorse, FaFish, FaSpider } from 'react-icons/fa';
 
 export const topics = [
   {
-    name: 'coding',
-    icon: <BsCode />,
+    name: 'kitties',
+    icon: <GiCat />,
   },
   {
-    name: 'comedy',
-    icon: <BsEmojiSunglasses />,
+    name: 'doggies',
+    icon: <FaDog />,
   },
   {
-    name: 'gaming',
-    icon: <FaGamepad />,
+    name: 'horses',
+    icon: <FaHorse />,
   },
   {
-    name: 'food',
-    icon: <GiCakeSlice />,
+    name: 'birdies',
+    icon: <GiHummingbird />,
   },
   {
-    name: 'dance',
-    icon: <GiGalaxy />,
+    name: 'fishies',
+    icon: <FaFish />,
   },
   {
-    name: 'beauty',
-    icon: <GiLipstick />,
+    name: 'farm animals',
+    icon: <GiDonkey />,
   },
   {
-    name: 'animals',
-    icon: <FaPaw />,
+    name: 'wild animals',
+    icon: <GiLion />,
   },
   {
-    name: 'sports',
-    icon: <FaMedal />,
+    name: 'beetles',
+    icon: <GiScarabBeetle />,
+  },
+  {
+    name: 'reptiles',
+    icon: <GiSandSnake/>
+  },
+  {
+    name: 'spiderlings',
+    icon: <FaSpider />,
+  },
+  {
+    name: 'other',
+    icon: <GiFrogFoot />,
   },
 ];
 

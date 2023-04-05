@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { GoogleLogin, useGoogleLogin, GoogleLoginProps } from '@react-oauth/google';
 import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
 import { ImCancelCircle } from 'react-icons/im';
 
@@ -15,9 +14,6 @@ const Sidebar = () => {
 const [showSidebar, setShowSidebar] = useState(true);
 
 const normalLink = "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
-const login = useGoogleLogin({
-    onSuccess: tokenResponse => console.log(tokenResponse),
-  });
 
     return (
         <div>
