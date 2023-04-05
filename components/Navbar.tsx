@@ -8,8 +8,8 @@ import {BiSearch} from 'react-icons/bi';
 import {IoMdAdd} from 'react-icons/io';
 
 
-import Logo from '../utils/tiktik-logo1.png';
-import SmallLogo from '../utils/tiktik-logo2.png';
+import Logo from '../utils/zootube_lglogo.png';
+import SmallLogo from '../utils/zootube_smlogo.png';
 import { createOrGetUser } from '@/utils';
 import useAuthStore from '@/store/authStore';
 
