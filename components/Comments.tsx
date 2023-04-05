@@ -5,17 +5,47 @@ import { GoVerified } from 'react-icons/go';
 
 import useAuthStore from '@/store/authStore';
 import NoResults from './NoResults';
-import { CommentsProps } from '@/types';
+import { CommentsProps, IUser } from '@/types';
 
 const Comments = ({comment, comments, isPostingComment, setComment, addComment}: CommentsProps) => {
 
-    const userProfile = useAuthStore();
+    const {userProfile, allUsers} = useAuthStore();
 
     return (
         <div className='mt-6 px-10 pt-4 border-t-2 border-gray-200 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]'>
             <div className="overflow-scroll lg:h-[440px]">
                 {comments?.length 
-                ? (<div>videos</div>)
+                ? (comments.map((item, index) => (
+                    <>
+                    {allUsers.map((user: IUser) => (
+                        user._id === (item.postedBy._id || item.postedBy._ref) && (
+                            <div className="items-center p-2" key={index}>
+                                <Link href={`/profile/${user._id}`} >
+                                    <div className="flex items-start gap-3">
+                                        <div className="w-8 h-8 ">
+                                            <Image 
+                                                src={user.image} 
+                                                width={34} 
+                                                height={34} 
+                                                className='rounded-full' 
+                                                alt='user profile'/>
+                                        </div>
+                                        <div className="hidden xl:block">
+                                            <p className="flex items-center font-bold lowercase text-primary">
+                                                {user.userName.replaceAll(' ', '')}
+                                                <GoVerified className='ml-2 text-blue-400'/>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Link>
+                                <div className="ml-10 ">
+                                    <p className="">{item.comment}</p>
+                                </div>
+                            </div>
+                        )
+                    ))}
+                    </>
+                )))
                 : (<NoResults text='No comments yet'/>)}
             </div>
             {userProfile && (

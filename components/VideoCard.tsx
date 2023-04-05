@@ -35,7 +35,7 @@ const VideoCard = ({post}:VideoCardProps) => {
             <div>
                 <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">
                     <div className="w-10 h-10 md:w-16 md:h-16">
-                        <Link href='/'>
+                        <Link href={`/profile/${post.postedBy._id}`}>
                             <>
                             <Image
                                 width={62}
@@ -48,7 +48,7 @@ const VideoCard = ({post}:VideoCardProps) => {
                             </>
                         </Link>
                     </div>
-                    <Link href='/'>
+                    <Link href={`/profile/${post.postedBy._id}`}>
                         <div className="flex items-center gap-2">
                             <p className="flex items-center gap-2 font-bold md:text-md text-primary">
                                 {post.postedBy.userName} {` `}

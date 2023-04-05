@@ -1,5 +1,13 @@
 import React , { Dispatch, SetStateAction } from "react";
 
+export interface ProfileProps {
+    data:{
+        user: IUser,
+        userVideos: Video[],
+        userLikes: Video []
+    }
+}
+
 export interface CommentsProps{
     isPostingComment: boolean;
     comment: string;
