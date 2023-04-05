@@ -66,8 +66,7 @@ const VideoCard = ({post}:VideoCardProps) => {
                 >
                     <Link href={`/detail/${post._id}`}>
                         <video
-                            preload="metadata"
-                            controls
+                            playsInline
                             loop
                             ref={videoRef}
                             src={post.video.asset.url}
