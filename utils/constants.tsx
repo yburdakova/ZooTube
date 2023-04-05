@@ -1,4 +1,4 @@
-import { GiCat, GiHummingbird, GiFrogFoot, GiDonkey, GiLion, GiScarabBeetle, GiSandSnake } from 'react-icons/gi';
+import { GiCat, GiHummingbird, GiFrogFoot, GiLion, GiScarabBeetle, GiSandSnake } from 'react-icons/gi';
 import { FaDog, FaHorse, FaFish, FaSpider } from 'react-icons/fa';
 
 export const topics = [
@@ -11,7 +11,7 @@ export const topics = [
     icon: <FaDog />,
   },
   {
-    name: 'horses',
+    name: 'farm animals',
     icon: <FaHorse />,
   },
   {
@@ -21,10 +21,6 @@ export const topics = [
   {
     name: 'fishies',
     icon: <FaFish />,
-  },
-  {
-    name: 'farm animals',
-    icon: <GiDonkey />,
   },
   {
     name: 'wild animals',
@@ -49,5 +45,5 @@ export const topics = [
 ];
 
 export const footerList1 = ['About', 'Newsroom', 'Store', 'Contact', 'Carrers', 'ByteDance', 'Creator Directory']
-export const footerList2 = [ 'TipTop for Good','Advertise','Developers','Transparency','TipTop Rewards' ]
+export const footerList2 = [ 'ZooTube for Good','Advertise','Developers','Transparency','ZooTube Rewards' ]
 export const footerList3 = [ 'Help', 'Safety', 'Terms', 'Privacy', 'Creator Portal', 'Community Guidelines' ]
