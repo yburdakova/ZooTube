@@ -8,6 +8,7 @@ export interface ProfileProps {
     }
 }
 
+
 export interface CommentsProps{
     isPostingComment: boolean;
     comment: string;
