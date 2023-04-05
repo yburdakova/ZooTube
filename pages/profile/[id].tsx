@@ -37,15 +37,18 @@ const Profile = ({data}: ProfileProps) => {
                             className='rounded-full' 
                             alt='user profile'/>
                     </div>
-                    <div className='flex'>
+                    <div className='flex flex-col justify-center'>
                         <p className="flex items-center justify-center gap-1 font-bold tracking-wide lowercase text-primary md:text-2xl">
                             {user.userName.replaceAll(' ', '')}
                             <GoVerified className='ml-2 text-blue-400'/>
                         </p>
+                        <p className='text-lg text-gray-400 capitalize'>
+                            {user.userName}
+                        </p>
                     </div>
                 </div>
             </div>
-            <div className="">
+            <div>
                 <div className="flex w-full gap-10 mt-10 mb-10 border-b-2 border-gray-200 bg-whitr">
                     <p className={`mt-2 text-xl font-semibold cursor-pointer ${videos}`} onClick={()=>setShowUserVideos(true)}>
                         Videos

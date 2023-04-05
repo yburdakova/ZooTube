@@ -29,9 +29,12 @@ const SuggestedAccounts = () => {
                                     alt='user profile'/>
                             </div>
                             <div className="hidden xl:block">
-                                <p className="flex items-center font-bold lowercase text-primary">
+                                <p className="flex items-center gap-1 text-lg font-bold lowercase text-primary">
                                     {user.userName.replaceAll(' ', '')}
                                     <GoVerified className='ml-2 text-blue-400'/>
+                                </p>
+                                <p className='text-sm text-gray-400 capitalize'>
+                                    {user.userName}
                                 </p>
                             </div>
                         </div>
