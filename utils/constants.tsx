@@ -48,6 +48,4 @@ export const topics = [
   },
 ];
 
-export const footerList1 = ['About', 'Contact', 'Carrers', 'ByteDance', 'Creator Directory']
-export const footerList2 = [ 'Advertise','Transparency','ZooTube Rewards' ]
-export const footerList3 = [ 'Help', 'Safety', 'Privacy', 'Creator Portal', 'Community Guidelines' ]
+export const footerList = ['About', 'Contact', 'Help', 'Privacy', 'Creator Directory']

@@ -9,7 +9,6 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
         const query = singleUserQuery(id);
         const userVideosQuery = userCreatedPostsQuery(id);
         const userLikesQuery = userLikedPostsQuery(id);
-
         const user = await client.fetch(query);
         const userVideos = await client.fetch(userVideosQuery);
         const userLikes = await client.fetch(userLikesQuery);

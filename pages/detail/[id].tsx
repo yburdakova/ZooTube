@@ -25,10 +25,8 @@ const Detail = ({ postDetails }: DetailsProps) => {
 
     const videoRef = useRef<HTMLVideoElement>(null);
     const router = useRouter();
-
+    
     const { userProfile }: any = useAuthStore();
-
-
 
     const onVideoClick = () => {
         if (isPlaying) {
